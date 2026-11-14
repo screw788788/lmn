@@ -899,7 +899,7 @@ class CameraEngine(private val ctx: Context) {
         try {
             reader = ImageReader.newInstance(res.size.width, res.size.height, ImageFormat.JPEG, 1)
             val oc = OutputConfiguration(reader.surface)
-            oc.setSensorPixelModeUsed(CameraMetadata.SENSOR_PIXEL_MODE_MAXIMUM_RESOLUTION)
+            oc.addSensorPixelModeUsed(CameraMetadata.SENSOR_PIXEL_MODE_MAXIMUM_RESOLUTION)
             val gate = CompletableDeferred<CameraCaptureSession?>()
             d.createCaptureSession(
                 SessionConfiguration(
